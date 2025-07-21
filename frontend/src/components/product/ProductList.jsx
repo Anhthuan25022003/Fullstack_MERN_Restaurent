@@ -18,11 +18,12 @@ const ProductList = ({ products, onEdit, onDelete }) => {
               <td className="px-6 py-4">{product.description}</td>
               <td className="px-6 py-4">{product.price}</td>
               <td className="px-6 py-4">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-16 h-16 object-cover"
-                /></td>
+<img
+                src={`http://localhost:9000/uploads/${product.image}`}
+                alt={product.name}
+                className="w-16 h-16 object-cover rounded"
+              />
+              </td>
 
               <td className="px-6 py-4">
                 <button

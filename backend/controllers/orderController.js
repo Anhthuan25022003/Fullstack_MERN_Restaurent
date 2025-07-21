@@ -35,10 +35,18 @@ import {
   
   export const updateOrderController = async (req, res) => {
     try {
-      const order = await updateOrderService(req.params.id, req.body);
-      res.status(200).json(order);
+      const { customerId, tableId, products, totalPrice, status } = req.body;
+      if (!customerId || !tableId || !Array.isArray(products) || !totalPrice) {
+        return res.status(400).json({ message: "Thiếu thông tin" });
+      }
+      const updated = await Order.findByIdAndUpdate(
+        req.params.id,
+        { customerId, tableId, products, totalPrice, status },
+        { new: true }
+      );
+      res.json(updated);
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(500).json({ message: "Lỗi server", error });
     }
   };
   

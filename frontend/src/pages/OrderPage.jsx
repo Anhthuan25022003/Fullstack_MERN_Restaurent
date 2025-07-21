@@ -20,7 +20,7 @@ const OrderPage = () => {
           <p>Tên khách hàng: {order.customerId?.name}</p>
           <p>Số bàn: {order.tableId?.name}</p>
           <p>Ngày tạo: {new Date(order.createdAt).toLocaleDateString()}</p>
-          <button
+          {/* <button
             onClick={() => handleEdit(order)}
             className="bg-blue-600 text-white px-2 py-1 rounded mr-2"
           >
@@ -31,7 +31,7 @@ const OrderPage = () => {
             className="bg-red-600 text-white px-2 py-1 rounded"
           >
             Xoá
-          </button>
+          </button> */}
         </div>
       ))}
     </div>
